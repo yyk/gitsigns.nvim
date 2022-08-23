@@ -290,6 +290,9 @@ local attach_throttled = throttle_by_id(function(cbuf, aucmd)
    })
 
 
+   if not api.nvim_buf_is_valid(cbuf) then
+     return
+   end
 
    api.nvim_buf_attach(cbuf, false, {
       on_lines = on_lines,
